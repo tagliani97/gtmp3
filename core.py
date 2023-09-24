@@ -7,8 +7,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from moviepy.editor import *
 from youtube_search import YoutubeSearch
 
-CLIENT_ID = '23b7b90282474e83bcf575d878363856'
-CLIENT_SECRET = '566821c8d6ff4b5997b1be67c195c306'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 
 sp = spotipy.Spotify(
     auth_manager=SpotifyClientCredentials(

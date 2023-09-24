@@ -86,7 +86,7 @@ def download_audio_by_name(track_name, output_directory, region):
     print(f"Audio for '{track_name}' successfully downloaded and converted!")
 
 @click.command()
-@click.option("--region", prompt="Language")
+@click.option("--region", prompt="Language", default="pt")
 @click.option("--output_directory", prompt="Output Directory Name", default="downloads")
 @click.option("--url", prompt="Spotify Playlist URL")
 def cli(url, output_directory, region):

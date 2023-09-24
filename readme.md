@@ -4,6 +4,9 @@ First, configure your Spotify credentials in the Spotify Developer Dashboard.
 Once done, you can utilize this script to retrieve tracks from Spotify.
 To run the script, use the following command in the terminal:
 
+* After the configuration:
+* Apply the credetials in CLIENT_ID and CLIENT_SECRET
+
 ```
 python3 core.py --region en --output_directory rock --url "Spotify playlist share link"
 ```

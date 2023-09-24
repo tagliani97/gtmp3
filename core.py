@@ -2,6 +2,7 @@ import os
 import spotipy
 import re
 import time
+import click
 from pytube import YouTube
 from spotipy.oauth2 import SpotifyClientCredentials
 from moviepy.editor import *
@@ -9,11 +10,6 @@ from youtube_search import YoutubeSearch
 
 CLIENT_ID = ''
 CLIENT_SECRET = ''
-
-sp = spotipy.Spotify(
-    auth_manager=SpotifyClientCredentials(
-    client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-)
 
 def extract_playlist_id_from_url(url):
     """
@@ -98,16 +94,25 @@ def cli(url, output_directory, region):
     Command-line interface to download tracks from a Spotify playlist from YouTube.
     """
     playlist_id = extract_playlist_id_from_url(url)
-
-    if playlist_id:
-        if not os.path.exists(output_directory):
-            os.mkdir(output_directory)
-
-        tracks = get_tracks_from_playlist(playlist_id)
-        for track_name in tracks:
-            download_audio_by_name(track_name, output_directory, region)
+    
+    try:
+        sp = spotipy.Spotify(
+            auth_manager=SpotifyClientCredentials(
+            client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
+        )
+        validate_auth = sp.user_playlists('spotify')
+    except Exception as e:
+        raise(e)
     else:
-        print("Unable to extract the playlist ID from the provided link.")
+        if playlist_id:
+            if not os.path.exists(output_directory):
+                os.mkdir(output_directory)
+
+            tracks = get_tracks_from_playlist(playlist_id)
+            for track_name in tracks:
+                download_audio_by_name(track_name, output_directory, region)
+        else:
+            print("Unable to extract the playlist ID from the provided link.")
 
 if __name__ == '__main__':
     cli()

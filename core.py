@@ -21,7 +21,7 @@ def extract_playlist_id_from_url(url):
     match = re.search(r"playlist/([a-zA-Z0-9]+)", url)
     return match.group(1) if match else None
 
-def get_tracks_from_playlist(playlist_id):
+def get_tracks_from_playlist(playlist_id, sp):
     """
     Get tracks from a specific playlist.
     
@@ -108,7 +108,7 @@ def cli(url, output_directory, region):
             if not os.path.exists(output_directory):
                 os.mkdir(output_directory)
 
-            tracks = get_tracks_from_playlist(playlist_id)
+            tracks = get_tracks_from_playlist(playlist_id, sp)
             for track_name in tracks:
                 download_audio_by_name(track_name, output_directory, region)
         else:

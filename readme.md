@@ -1,26 +1,18 @@
 # How to Use
+This document guides you on how to use the Spotify playlist downloader. \
+Follow these steps to download your favorite Spotify playlists.
 
-First, configure your Spotify credentials in the Spotify Developer Dashboard.
-Once done, you can utilize this script to retrieve tracks from Spotify.
-After obtaining your credentials:
+# Prerequisites
 
-* Set your CLIENT_ID to the provided Client ID from Spotify.
-* Set your CLIENT_SECRET to the provided Client Secret from Spotify.
+* Spotify Playlist URL:
+    - Ensure that the URL is for a Spotify playlist. The tool does not support album or show URLs.
+    - Example: https://open.spotify.com/playlist/37i9dQZF1DX7QOv5kjbU68?si=167db35e69a04e3d
+* Output Location:
+    - Specify the location where your playlist music will be saved.
+    - You can create a new folder using the interactive Windows file explorer.
 
-To run the script, use the following command in the terminal:
-```
-python3 core.py --region en --output_directory rock --url "Spotify playlist share link"
-```
-
-## Parameters:
-
---region: Option to add lyrics to search for music.
-
---output_directory: Specifies the directory where the tracks will be saved.
-
---url: The shared link of the Spotify playlist you want to fetch.
-
-
-
-
-
+# Setting up Developer Mode
+- Visit the Spotify Developer website.
+- Obtain your credentials (Client ID and Client Secret).
+- Create a .env file in the root directory of your project.
+- Store your Spotify credentials in this file

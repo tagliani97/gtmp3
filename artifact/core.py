@@ -2,6 +2,18 @@ import os
 import re
 from moviepy.editor import AudioFileClip
 from youtube_search import YoutubeSearch
+from langdetect import detect
+
+
+def detect_music(track):
+    try:
+        detect_idiom = detect(frase)
+        if detect_idiom == "pt":
+            return "letra"
+        else:
+            return "LYRICS"
+    except:
+        print("Não foi possível detectar o idioma.")
 
 
 def extract_playlist_id(url):
@@ -18,10 +30,10 @@ def get_spotify_tracks(playlist_id, spotify_client):
     ]
 
 
-def search_youtube(query, region):
+def search_youtube(track):
     """Search for a YouTube URL based on a query."""
-    search_type = "LYRICS" if "en" in region else "letra"
-    results = YoutubeSearch(f"{query} {search_type}", max_results=1).to_dict()
+    search_type = detect_music(track)
+    results = YoutubeSearch(f"{track} {search_type}", max_results=1).to_dict()
     return f"https://www.youtube.com{results[0]['url_suffix']}" if results else None
 
 

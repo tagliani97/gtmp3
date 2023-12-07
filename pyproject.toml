@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "sptf-mp3"
+version = "0.1.0"
+description = ""
+authors = ["gabriel tagliani"]
+license = "apache"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+spotipy = "^2.23.0"
+pytube = "^15.0.0"
+moviepy = "^1.0.3"
+youtube-search = "^2.1.2"
+customtkinter = "^5.2.1"
+packaging = "^23.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

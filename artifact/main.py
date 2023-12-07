@@ -6,10 +6,6 @@ from dotenv import load_dotenv
 from tkinter import messagebox, ttk, filedialog
 from artifact.downloader import SpotifyDownloader
 
-CLIENT_ID = "23b7b90282474e83bcf575d878363856"
-CLIENT_SECRET = "761fa77077e74c959e84d4c6cf6b5426"
-
-
 class SpotifyDownloaderApp(tk.Tk):
     def __init__(self):
         super().__init__()

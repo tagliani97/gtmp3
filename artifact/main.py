@@ -6,15 +6,17 @@ from dotenv import load_dotenv
 from tkinter import messagebox, ttk, filedialog
 from artifact.downloader import SpotifyDownloader
 
-load_dotenv()
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+CLIENT_ID = "23b7b90282474e83bcf575d878363856"
+CLIENT_SECRET = "761fa77077e74c959e84d4c6cf6b5426"
+
 
 class SpotifyDownloaderApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("gtmp3")
-        self.geometry("720x480")
+        self.geometry("520x280")
+        self.resizable(False, False)  # Desativa o redimensionamento
+        self.attributes('-disabled', False) 
         self.create_widgets()
         self.spotify_downloader = SpotifyDownloader(CLIENT_ID, CLIENT_SECRET)
         self.author_label = tk.Label(self, text="by: gtagliani")
@@ -23,7 +25,6 @@ class SpotifyDownloaderApp(tk.Tk):
 
     def create_widgets(self):
         ctk.set_appearance_mode("light")
-
         self.create_labels_and_entries()
         self.create_buttons()
         self.create_progress_bar()

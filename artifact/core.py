@@ -7,7 +7,7 @@ from langdetect import detect
 
 def detect_music(track):
     try:
-        detect_idiom = detect(frase)
+        detect_idiom = detect(track)
         if detect_idiom == "pt":
             return "letra"
         else:

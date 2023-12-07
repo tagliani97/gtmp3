@@ -17,7 +17,7 @@ class SpotifyDownloader:
         )
 
     def download_playlist(
-            self, playlist_url, output_dir, region, progress_callback, error_callback, progress_bar
+            self, playlist_url, output_dir, progress_callback, error_callback, progress_bar
         ):
             playlist_id = extract_playlist_id(playlist_url)
             if not playlist_id:

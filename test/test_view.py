@@ -4,9 +4,6 @@ from artifact.main import SpotifyDownloaderApp
 
 playlist = "https://open.spotify.com/playlist/37i9dQZF1DX7QOv5kjbU68?si=6209f2a1dfb24e74"
 output = "C:\\Users\\gabri\\OneDrive\\Documentos\\gtmp3\\output_test\\"
-region = "US"
-
-
 
 @pytest.fixture
 def app():

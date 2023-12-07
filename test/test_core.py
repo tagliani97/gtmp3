@@ -16,7 +16,6 @@ def test_extract_playlist_id():
 
 def test_search_youtube():
     query = "Rich Flex"
-    region = "en-US"
     youtube_url = search_youtube(query)
     assert youtube_url is not None
     assert youtube_url.startswith("https://www.youtube.com/")

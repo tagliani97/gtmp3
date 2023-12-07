@@ -80,22 +80,21 @@ class SpotifyDownloaderApp(tk.Tk):
     def start_download(self):
         playlist_url = self.url_entry.get()
         output_dir = self.output_dir_entry.get()
-        region = self.region_entry.get()
 
-        if not playlist_url or not output_dir or not region:
+        if not playlist_url or not output_dir:
             messagebox.showwarning("Aviso", "Todos os campos são necessários!")
             return
 
         threading.Thread(
             target=self.download_playlist,
-            args=(playlist_url, output_dir, region),
+            args=(playlist_url, output_dir),
             daemon=True,
         ).start()
         self.progress_label.configure(text="Preparando para baixar...")
         self.progress_label.pack()
         self.progress.pack()
 
-    def download_playlist(self, playlist_url, output_dir, region):
+    def download_playlist(self, playlist_url, output_dir):
         def progress_callback(track, progress, progress_bar):
             self.update_progress(track, progress, progress_bar)
 
@@ -104,7 +103,6 @@ class SpotifyDownloaderApp(tk.Tk):
             self.spotify_downloader.download_playlist(
                 playlist_url,
                 output_dir,
-                region,
                 progress_callback=progress_callback,
                 error_callback=self.handle_error,
                 progress_bar=self.progress,

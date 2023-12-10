@@ -1,5 +1,6 @@
 import os
 import re
+import moviepy.editor as mp
 from moviepy.editor import AudioFileClip
 from youtube_search import YoutubeSearch
 from langdetect import detect
@@ -42,8 +43,8 @@ def convert_to_mp3(audio_path, output_dir):
     mp3_path = os.path.join(
         output_dir, os.path.splitext(os.path.basename(audio_path))[0] + ".mp3"
     )
-    audio_clip = AudioFileClip(audio_path)
-    audio_clip.write_audiofile(mp3_path)
+    audio_clip = mp.AudioFileClip(audio_path)
+    audio_clip.write_audiofile(mp3_path, logger=None)
     audio_clip.close()
     os.remove(audio_path)
     return mp3_path

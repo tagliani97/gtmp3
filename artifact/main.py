@@ -10,7 +10,7 @@ class SpotifyDownloaderApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("gtmp3")
-        self.geometry("520x280")
+        self.geometry("520x380")
         self.resizable(False, False)  # Desativa o redimensionamento
         self.attributes('-disabled', False) 
         self.create_widgets()

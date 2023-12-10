@@ -16,3 +16,7 @@ Follow these steps to download your favorite Spotify playlists.
 - Obtain your credentials (Client ID and Client Secret).
 - Create a .env file in the root directory of your project.
 - Store your Spotify credentials in this file
+
+# Example:
+
+![Alt text](image.png)

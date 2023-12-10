@@ -19,4 +19,4 @@ Follow these steps to download your favorite Spotify playlists.
 
 # Example:
 
-![Alt text](image.png)
+![Alt text](images.png)
